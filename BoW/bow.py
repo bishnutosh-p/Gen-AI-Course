@@ -15,7 +15,7 @@ def read_corpus(filename):
             tag, words = line.lower().strip().split(" ||| ")
             yield ([w2i[x] for x in words.split(" ")], t2i[tag] )
 
-train = list(read_corpus("D:\Gen AI Internship Course\Assignments\BoW\train.txt"))
+train_dataframe = list(read_corpus("D:\Gen AI Internship Course\Assignments\BoW\train.txt"))
 
 w2i = defaultdict(lambda: UNK, w2i)
 nwords = len(w2i) #no of unique words in the dataset
@@ -29,7 +29,7 @@ optimizer = torch.optim.Adam(model.parameters())
 
 for i in range(100):
     train_loss = 0.0
-    for word, tag in train:
+    for word, tag in train_dataframe:
         words = torch.tensor(words).type(type)
         tags = torch.tensor(tags).type(type)
         scores = model(words)
