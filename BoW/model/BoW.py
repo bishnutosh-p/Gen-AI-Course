@@ -91,3 +91,26 @@ for _ in range(num_merges):
     best_pair = max(pairs, key=pairs.get)
     vocab = merge_vocab(best_pair, vocab)
     print(vocab)
+
+
+
+#######
+
+
+# import torch
+# from torch import nn
+# from torch.autograd import Variable
+
+# class BOW (torch.nn.module):
+# def __init__(self, nwords, ntags):
+# super(BOW, self).__init__()
+
+# self.bias = Variable(torch.zeros(ntags), requires_grad = True). type(FloatTensor)
+# self.embedding = nn.Embedding(nwords, ntags)
+# nn.init.xavier_uniform(self.embedding.weight)
+
+# def forward (self, words) :
+# emb = self.embedding(words)
+# out =torch.sum(emb, dim = 0) + self.bias -> 1xN
+# out = out.view (1, -1)
+# return out
